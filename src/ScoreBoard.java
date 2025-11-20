@@ -5,7 +5,6 @@ public class ScoreBoard {
     private int scoreTeam2=0;
     private boolean isActive=true;
 
-
     public ScoreBoard(String team1, String team2){
         word=team1;
         word2=team2;
@@ -17,31 +16,39 @@ public class ScoreBoard {
         if(num==0){
             isActive=!isActive;
         }
-        if(isActive==true) {
+        if(isActive) {
             scoreTeam1+=num;
         }
-        if(isActive==false){
+        if(!isActive){
             scoreTeam2+=num;
         }
-        //System.out.println(scoreTeam1);
-        //System.out.println(scoreTeam2);
-
-
-
 
     }
     public String getScore(){
         String activeTeam=null;
-        if(isActive==true){
+        if(isActive){
             activeTeam=word;
         }
-        if(isActive==false){
+        if(!isActive){
             activeTeam=word2;
         }
          return (scoreTeam1+"-" +scoreTeam2 + "-" +activeTeam);
 
         }
-
+        public String getWinner()
+        {
+            String winner;
+            if(scoreTeam1>scoreTeam2)
+            {
+                winner= word;
+            }
+            if(scoreTeam2>scoreTeam1)
+            {
+                winner=word2;
+            }
+            else return null;
+            return winner;
+        }
 
 
 }
